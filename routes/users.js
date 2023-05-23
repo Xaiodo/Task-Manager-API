@@ -39,9 +39,17 @@ router.post('/register', async (req, res) => {
     });
     const createdUser = await user.save();
     if (!createdUser) res.status(404).json({ message: 'User can not be created' });
-    res.send(createdUser);
+    const secret = process.env.SECRET;
+    const token = jwt.sign(
+      {
+        userId: user.id,
+      },
+      secret,
+      { expiresIn: '30d' },
+    );
+    return res.status(200).send({ user: user.email, token });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    return res.status(500).json({ success: false, message: error.message });
   }
 });
 
@@ -51,7 +59,7 @@ router.post('/login', async (req, res) => {
   if (!user) {
     return res.status(400).json({ success: false, message: 'User not found' });
   }
-  if (user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
+  if (bcrypt.compareSync(req.body.password, user.passwordHash)) {
     const token = jwt.sign(
       {
         userId: user.id,

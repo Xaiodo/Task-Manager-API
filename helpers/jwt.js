@@ -13,6 +13,7 @@ function authJwt() {
       '/users/login',
       '/users/register',
       'http://localhost:3000',
+      '/',
     ],
   });
 }

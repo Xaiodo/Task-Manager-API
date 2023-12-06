@@ -4,7 +4,7 @@
   "description": "backend of the task management system",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,7 +15,7 @@
     "express": "^4.18.2",
     "express-jwt": "^8.4.1",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.0",
+    "mongoose": "^6.10.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.21",
     "upgrade": "^1.1.0"

@@ -10,6 +10,8 @@ function authJwt() {
     path: [
       `${api}/users/login`,
       `${api}/users/register`,
+      '/users/login',
+      '/users/register',
       'http://localhost:3000',
     ],
   });

@@ -11,12 +11,10 @@ const api = process.env.APi_URL;
 const groupsRouter = require('./routes/groups');
 const tasksRouter = require('./routes/tasks');
 const usersRouter = require('./routes/users');
-const authJwt = require('./helpers/jwt');
 
 // Middleware
 app.use(express.json());
 app.use(morgan('tiny'));
-app.use(authJwt());
 
 app.use(`${api}/groups`, groupsRouter);
 app.use(`${api}/tasks`, tasksRouter);
@@ -32,6 +30,6 @@ mongoose.connect(process.env.CONNECTION_STRING, {
   console.log(err);
 });
 
-app.listen(8080, () => {
-  console.log('server is running http://localhost:8080');
+app.listen(3000, () => {
+  console.log('server is running http://localhost:3000');
 });

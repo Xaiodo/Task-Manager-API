@@ -8,6 +8,8 @@ require('dotenv/config');
 
 const api = process.env.APi_URL;
 
+console.log(process.env);
+
 const groupsRouter = require('./routes/groups');
 const tasksRouter = require('./routes/tasks');
 const usersRouter = require('./routes/users');
@@ -60,6 +62,8 @@ function split (thing) {
       : '<complex:' + thing.toString() + '>'
   }
 }
+
+
 
 app._router.stack.forEach(print.bind(null, []))
 

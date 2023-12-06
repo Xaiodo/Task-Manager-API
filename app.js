@@ -2,13 +2,15 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 
-const app = express();
-
 require('dotenv/config');
 
-const api = process.env.APi_URL;
+const app = express();
 
-console.log(process.env);
+const api = process.env.API_URL;
+
+console.log(process.env.API_URL);
+console.log(process.env.CONNECTION_STRING);
+
 
 const groupsRouter = require('./routes/groups');
 const tasksRouter = require('./routes/tasks');
